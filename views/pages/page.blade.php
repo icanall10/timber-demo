@@ -1,0 +1,1 @@
+<x-page :model="$model" />
