@@ -1,0 +1,1 @@
+<x-add-product-page :action="'create'" />

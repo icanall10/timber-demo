@@ -2,7 +2,7 @@
       class="map-search-form"
       enctype="multipart/form-data"
       method="post"
-      data-ajax="{{ $self->ajax('onSubmitSearch') }}"
+      data-request="{{ $self->ajax('onSubmitSearch') }}"
 >
     @csrf
 
@@ -10,7 +10,7 @@
 
         <div class="form-group item-search">
             {{ Form::text('search', null, [
-                'placeholder' => 'Поиск компании',
+                'placeholder' => __('site.search-form.search-companies'),
                 'autocomplete' => 'off'
             ]) }}
         </div>

@@ -1,14 +1,14 @@
 <form action="#"
       class="{{ $self->getFormId() }}"
       method="post"
-      data-ajax="{{ $self->ajax('onSubmit') }}"
+      data-request="{{ $self->ajax('onSubmit') }}"
 >
     @csrf
 
     <div class="form-inner flex flex-nowrap">
         <div class="form-group item-search">
-            {{ Form::text('search', null, [
-                'placeholder' => 'Я ищу...',
+            {{ Form::text('search', $self->getSearch(), [
+                'placeholder' => __('site.search-form.i-search'),
                 'autocomplete' => 'off'
             ]) }}
         </div>

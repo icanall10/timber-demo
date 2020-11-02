@@ -1,27 +1,34 @@
 @php($user = $self->getUser())
 
-<div class="user flex flex-middle">
+<div class="user flex flex-middle flex-left">
 
     @if ($user)
-        <a href="#" class="link">
-            {!! icon('user') !!}
-            {{ $user->name }}
-        </a>
 
-        <a href="{{ url('user/logout') }}" class="link">
-            Выход
-        </a>
+        <div class="link" data-header-block-notices-link>
+            {!! $self->render('notices-link') !!}
+        </div>
+
+        <div class="link">
+            <a href="{{ $user->getPageUrl() }}" title="{{ $user->name }}">
+                {!! icon('user') !!}
+                <span class="user-name">{{ $user->name }}</span>
+            </a>
+        </div>
+
     @else
-        <a href="#"
-           class="link"
-           data-ajax="AuthModal::onModalLogin"
-           data-ajax-data="{!! json([
-            'type' => 'register'
-       ]) !!}"
-        >
-            {!! icon('user') !!}
-            Войти
-        </a>
+
+        <div class="link">
+            <a href="#"
+               data-request="AuthModal::onModalLogin"
+               data-request-data="{{ $self->ajaxData([
+                'type' => 'register'
+           ]) }}"
+            >
+                {!! icon('user') !!}
+                <span class="user-name">{{ __('site.header-block.sing-in-do') }}</span>
+            </a>
+        </div>
+
     @endif
 
 </div>

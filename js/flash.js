@@ -5,13 +5,13 @@
         $('[data-alert]')
             .once('flash')
             .on('hideOther', function () {
-                $('[data-alert]').not(this).fadeOut(350);
+                $('[data-alert]').not(this).fadeOut(300);
             })
             .on('showMessage', function () {
-                $(this).fadeIn(350);
+                $(this).fadeIn(300);
             })
             .on('hideMessage', function () {
-                $(this).fadeOut(350);
+                $(this).fadeOut(300);
             })
             .click(function () {
                 $(this).trigger('hideMessage');
@@ -38,6 +38,16 @@
 
     $(document).ajaxComplete(function () {
         behaviors();
+    });
+
+
+    $(document).click(function (event) {
+        let selector = '[data-alert]';
+        let $target = $(event.target);
+
+        if (!$target.closest(selector).length && $(selector).is(":visible")) {
+            $(selector).hide();
+        }
     });
 
 

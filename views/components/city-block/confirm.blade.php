@@ -2,16 +2,14 @@
 
 <div class="confirm" data-city-confirm>
     <div class="answer">
-        Ваш город - <span class="name">{{ $service->getCity()->name }}</span>?
+        {{ __('site.city-block.your-city') }} - <span class="name">{{ $service->getCity()->name }}</span>?
     </div>
     <div class="actions flex flex-center">
         <a href="#"
            data-city-confirm-link
-           data-ajax="{{ $self->ajax('onConfirm') }}"
-           data-ajax-data="{!! json([
-                'category_id' => $service->getCity()->id
-           ]) !!}"
+           data-request="{{ $self->ajax('onConfirm') }}"
+           data-request-data="{{ $self->ajaxData(['id' => $service->getCity()->id]) }}"
         >Да</a>
-        <a href="#" data-ajax="{{ $self->ajax('onCitiesShow') }}">Нет, выбрать другой</a>
+        <a href="#" data-request="{{ $self->ajax('onCitiesShow') }}">{{ __('site.city-block.not-select-other') }}</a>
     </div>
 </div>

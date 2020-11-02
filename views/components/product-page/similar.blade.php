@@ -1,0 +1,1 @@
+<x-similar-products-block :model="$self->getModel()"/>

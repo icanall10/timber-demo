@@ -1,4 +1,6 @@
 <div class="location flex flex-left flex-middle">
     {!! icon('location') !!}
-    Россия, г. {{ $item->city->name }}
+    {{ data_get($item, 'city.country.name') }},
+    {{ App::isLocale('ru') ? 'г.' : '' }}
+    {{ $item->city->name }}
 </div>

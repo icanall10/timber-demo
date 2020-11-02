@@ -1,0 +1,1 @@
+<x-products-list :items="$self->getItems()" :columns="3" />

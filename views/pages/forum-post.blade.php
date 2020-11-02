@@ -1,0 +1,1 @@
+<x-forum-post-page :model="$model" />

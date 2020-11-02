@@ -2,7 +2,7 @@
       class="{{ $self->getFormId() }}"
       enctype="multipart/form-data"
       method="post"
-      data-ajax="{{ $self->ajax('onSubmit') }}"
+      data-request="{{ $self->ajax('onSubmit') }}"
 >
     @csrf
 
@@ -15,15 +15,15 @@
         </div>
 
         <div class="form-group item-actions flex flex-middle flex-left">
-            {{ Form::button('Восстановить пароль', [
+            {{ Form::button(__('site.password-form.forgot-password'), [
                 'type' => 'submit'
             ]) }}
 
             <div class="link">
                 <a href="#"
-                   data-ajax="AuthModal::onModalChangeToLogin"
-                   data-ajax-data
-                >Войти</a>
+                   data-request="AuthModal::onModalChangeToLogin"
+                   data-request-data
+                >{{ __('site.password-form.sing-in-do') }}</a>
             </div>
         </div>
 

@@ -1,8 +1,7 @@
 @extends('layouts.default')
 
-@section('bodyClass', 'grey')
-@section('title', 'Выставки')
-@section('h1', 'Выставки')
+@section('title', __('site.exhibition-page.title'))
+@section('h1', __('site.exhibition-page.h1'))
 
 @section('content')
 

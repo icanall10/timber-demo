@@ -1,3 +1,1 @@
-@php($products = $self->getProducts())
-
-<x-products-list :items="$products"/>
+<x-products-list :items="$self->getProducts()"/>

@@ -5,10 +5,8 @@
         <div class="item">
             <a href="#"
                class="{{ $categoryId == $item->id ? 'active' : '' }}"
-               data-ajax="{{ $self->ajax('onChangeCategory') }}"
-               data-ajax-data="{!! json([
-                    'category_id' => $item->id
-               ]) !!}"
+               data-request="{{ $self->ajax('onChangeCategory') }}"
+               data-request-data="{{ $self->ajaxData(['category_id' => $item->id]) }}"
             >{{ $item->name }}</a>
         </div>
     @endforeach

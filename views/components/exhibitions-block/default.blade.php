@@ -5,11 +5,11 @@
         <div class="container">
 
             <div class="block-header flex flex-middle">
-                <div class="block-title">Выставки ЛПК {{ date('Y') }}</div>
+                <div class="block-title">{{ __('site.exhibitions-block.exhibitions-lpk') }} {{ date('Y') }}</div>
                 <div class="show-all">
                     <a href="{{ url('exhibitions') }}" class="button">
-                        {!! icon('list') !!}
-                        Все выставки
+                        {!! icon('layers') !!}
+                        {{ __('site.exhibitions-block.all-exhibitions') }}
                     </a>
                 </div>
             </div>

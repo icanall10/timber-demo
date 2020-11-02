@@ -2,7 +2,7 @@
       class="{{ $self->getFormId() }}"
       enctype="multipart/form-data"
       method="post"
-      data-ajax="{{ $self->ajax('onSubmit') }}"
+      data-request="{{ $self->ajax('onSubmit') }}"
 >
     @csrf
 
@@ -10,7 +10,7 @@
 
         <div class="form-group item-name">
             {{ Form::text('name', null, [
-                'placeholder' => 'Имя'
+                'placeholder' => __('site.register-form.name')
             ]) }}
         </div>
 
@@ -22,27 +22,27 @@
 
         <div class="form-group item-password">
             {{ Form::password('password', [
-                'placeholder' => 'Пароль'
+                'placeholder' => __('site.register-form.password')
             ]) }}
         </div>
 
         <div class="form-group item-password-confirmation">
             {{ Form::password('password_confirmation', [
-                'placeholder' => 'Пароль еще раз'
+                'placeholder' => __('site.register-form.repeat-password')
             ]) }}
         </div>
 
 
         <div class="form-group item-actions flex flex-middle flex-left">
-            {{ Form::button('Зарегистрироваться', [
+            {{ Form::button(__('site.register-form.sing-up-do'), [
                 'type' => 'submit'
             ]) }}
 
             <div class="link">
                 <a href="#"
-                   data-ajax="AuthModal::onModalChangeToLogin"
-                   data-ajax-data
-                >Войти</a>
+                   data-request="AuthModal::onModalChangeToLogin"
+                   data-request-data
+                >{{ __('site.register-form.sing-in-do') }}</a>
             </div>
         </div>
 

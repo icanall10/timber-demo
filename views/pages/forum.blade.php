@@ -1,0 +1,1 @@
+<x-forum-page :category="$category" />

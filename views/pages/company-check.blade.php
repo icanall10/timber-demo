@@ -1,0 +1,1 @@
+<x-company-check-page :model="$company"/>

@@ -1,5 +1,5 @@
 <div class="filters">
-    <a href="#">
+    <a href="{{ url('catalog/buy') }}">
         {!! icon('filters') !!}
     </a>
 </div>

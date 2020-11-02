@@ -6,7 +6,11 @@
             <ul>
                 @foreach($items as $city)
                     <li>
-                        <a href="{{ $city->getPageUrl() }}">{{ $city->name }}</a>
+                        <a href="{{ $city->getPageUrl() }}"
+                           title="{{ optional($city->country)->name }}, {{ optional($city->region)->name }}"
+                        >
+                            {{ $city->name }}
+                        </a>
                     </li>
                 @endforeach
             </ul>
@@ -15,7 +19,7 @@
 @endif
 
 @if (!$cities->count())
-    <p class="empty">Нет городов</p>
+    <p class="empty">{{ __('site.cities-block.list-empty') }}</p>
 @endif
 
 

@@ -2,12 +2,15 @@
     <div class="container inner flex flex-middle">
 
         <a href="{{ url('/') }}" class="logo">
-            <img src="{{ asset('img/logo-footer.png') }}" alt="">
+            <span class="img">
+                {!! icon('logo-footer') !!}
+            </span>
+            <span class="slogan">{{ __('site.slogan') }}</span>
         </a>
 
         {!! $self->render('social') !!}
 
-        <a href="{{ url('rules') }}" class="rules">Пользовательское соглашение</a>
+        <a href="{{ url('rules') }}" class="rules">{{ __('site.footer-block.rules') }}</a>
 
     </div>
 </div>

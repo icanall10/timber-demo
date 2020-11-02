@@ -26,7 +26,7 @@
     @endif
 
     @if (!$items->count())
-        <p class="empty">Нет выставок</p>
+        <p class="empty">{{ __('site.exhibitions-list.list-empty') }}</p>
     @endif
 
     {!! pagination($items) !!}

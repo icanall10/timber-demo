@@ -1,8 +1,8 @@
 <div class="logo">
     <a href="{{ url('/') }}">
         <span class="img">
-            <img src="{{ asset('img/logo.png') }}" alt="">
+            {!! icon('logo') !!}
         </span>
-        <span class="slogan">Рынок лесных ресурсов</span>
+        <span class="slogan">{{ __('site.slogan') }}</span>
     </a>
 </div>

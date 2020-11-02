@@ -2,7 +2,7 @@
       class="{{ $self->getFormId() }}"
       enctype="multipart/form-data"
       method="post"
-      data-ajax="{{ $self->ajax('onSubmit') }}"
+      data-request="{{ $self->ajax('onSubmit') }}"
 >
     @csrf
 
@@ -13,18 +13,18 @@
 
         <div class="form-group item-password">
             {{ Form::password('password', [
-                'placeholder' => 'Новый пароль'
+                'placeholder' => __('site.password-create-form.new-password')
             ]) }}
         </div>
 
         <div class="form-group item-password">
             {{ Form::password('password_confirmation', [
-                'placeholder' => 'Повторите новый пароль'
+                'placeholder' => __('site.password-create-form.repeat-new-password')
             ]) }}
         </div>
 
         <div class="form-group item-actions">
-            {{ Form::button('Сохранить пароль', [
+            {{ Form::button(__('site.password-create-form.save-password'), [
                 'type' => 'submit'
             ]) }}
         </div>

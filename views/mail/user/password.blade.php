@@ -1,9 +1,11 @@
-@component('mail::message')
+@extends('mail.layouts.default')
 
-Для изменения пароля перейдите по ссылке:
+@section('content')
+    <p>Здравствуйте.</p>
 
-@component('mail::button', ['url' => $user->getPasswordCreateUrl()])
-Изменить пароль
-@endcomponent
+    <p>Для изменения пароля перейдите по ссылке:</p>
 
-@endcomponent
+    <p>
+        <a href="{{ $url }}" class="button">Изменить пароль</a>
+    </p>
+@endsection

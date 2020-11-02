@@ -1,0 +1,20 @@
+.w-sidebar {
+    width: 17.5rem;
+}
+.router-link-active {
+    font-weight: normal !important;
+    color: yellow;
+}
+.fr-view p {
+    margin: 0;
+}
+.fr-view h2,
+.fr-view h3,
+.fr-view h4 {
+    margin: 0;
+    font-weight: bold;
+}
+
+a[href="https://www.froala.com/wysiwyg-editor?k=u"] {
+    display: none !important;
+}

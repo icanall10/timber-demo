@@ -2,7 +2,7 @@
 
 <div class="products-list">
     @if (!$items->count())
-        <p>Нет объявлений</p>
+        <p>{{ __('site.products-list.list-empty') }}</p>
     @endif
 
     @if ($items->count())
@@ -14,5 +14,7 @@
             {!! $self->render('list') !!}
         @endif
     @endif
+
+    {!! pagination($items) !!}
 </div>
 

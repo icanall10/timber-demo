@@ -1,0 +1,1 @@
+<x-company-page :model="$company"/>

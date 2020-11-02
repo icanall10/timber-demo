@@ -1,0 +1,1 @@
+<x-add-message-page :user="$user" />

@@ -3,7 +3,7 @@
 <div class="city">
     <a href="#"
        class="flex flex-left flex-middle"
-       data-ajax="{{ $self->ajax('onCitiesShow') }}"
+       data-request="{{ $self->ajax('onCitiesShow') }}"
     >
         <span class="icon">
              {!! icon('map') !!}

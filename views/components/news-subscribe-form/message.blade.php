@@ -1,0 +1,1 @@
+<p>{{ __('site.news-subscribe-block.message') }}</p>

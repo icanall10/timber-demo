@@ -17,6 +17,17 @@
             })
             .trigger('modalOpen');
 
+
+        $('[data-modal-close]')
+            .once()
+            .click(function () {
+                $(this)
+                    .closest('[data-modal]')
+                    .magnificPopup('close');
+
+                return false;
+            });
+
     }
 
 

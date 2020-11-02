@@ -1,10 +1,15 @@
-<?php $image = $item->images->first() ?>
+@php($image = $item->getOnlyImages()->first())
 
-<div class="products-grid-item">
+<div class="products-grid-item {{ $item->isHighlighted() ? 'highlighted' : '' }}"
+     data-product-grid-item="{{ $item->id }}"
+>
+
     <div class="img">
         <a href="{{ $item->getPageUrl() }}">
             @if ($image)
                 <img src="{{ $image->thumb('products-grid') }}" alt="{{ $item->name }}">
+            @else
+                <img src="{{ thumb('no-image.png', 'products-grid') }}" alt="{{ $item->name }}">
             @endif
         </a>
     </div>
@@ -23,12 +28,18 @@
     </div>
 
     <div class="fields">
-        @if ($item->diameter)
-            <div class="field">диаметр: {{ $item->diameter }} см</div>
+        @if ($diameter = $item->diameters->first())
+            <div class="field">
+                {{ __('site.products-list.diameter') }}
+                : {{ average($diameter->from, $diameter->to) }} {{ $item->getUnitForSize() }}
+            </div>
         @endif
 
-        @if ($item->length)
-            <div class="field">длина: {{ $item->length }} м</div>
+        @if ($length = $item->lengths->first())
+            <div class="field">
+                {{ __('site.products-list.length') }}
+                : {{ average($length->from, $length->to) }} {{ $item->getUnitForSize() }}
+            </div>
         @endif
     </div>
 
@@ -37,9 +48,25 @@
         <div class="currency">
             {!! icon('rub') !!}
         </div>
-        <div class="suffix">за м³</div>
+        <div class="suffix">{{ __('site.products-list.per-m3', ['unit' => $item->getUnitForPriceName()]) }}</div>
     </div>
 
-    <div class="city">Севастополь</div>
+    @if ($item->city)
+        <div class="city">{{ $item->city->name }}</div>
+    @endif
+
+    @if ($item->canEdit())
+        <div class="edit flex flex-left">
+            <a href="{{ $item->getEditPageUrl() }}"
+               class="button extra-small"
+            >{{ __('site.product-list.edit') }}</a>
+
+            <a href="{{ $item->getEditPageUrl() }}"
+               class="button extra-small red"
+               data-request="{{ $self->ajax('onConfirmDelete') }}"
+               data-request-data='@json(['product_id' => $item->id])'
+            >{{ __('site.product-list.delete') }}</a>
+        </div>
+    @endif
 
 </div>

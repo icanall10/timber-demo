@@ -1,11 +1,11 @@
 @if ($self->isType('register'))
-    Регистрация
+    {{ __('site.auth-modal.register-title') }}
 @endif
 
 @if ($self->isType('login'))
-    Вход
+    {{ __('site.auth-modal.login-title') }}
 @endif
 
 @if ($self->isType('password'))
-    Восстановление пароля
+    {{ __('site.auth-modal.password-title') }}
 @endif

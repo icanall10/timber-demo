@@ -1,2 +1,2 @@
-<p>На Вашу почту отправлено письмо.</p>
-<p>Для активации аккаунта перейдите по ссылке из письма.</p>
+<p>{{ __('site.password-form.message-sent') }}</p>
+<p>{{ __('site.register-form.for-change-password-use-link') }}</p>
